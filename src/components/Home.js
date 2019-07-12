@@ -11,12 +11,13 @@ class Home extends React.Component {
     render(){
         return (
             <div>
+                <h2 className="center">Home page</h2>
                 {
                     this.props.posts.map((post, index) => {
                         return (
                             <div className="post" key={index}>
                                 <p className="title"><NavLink to={'/' + post.id}>{post.title}</NavLink></p>
-                                <p className="pstContent">{post.body}</p>
+                                <p className="postContent">{post.body}</p>
                             </div>
                         );
                     })

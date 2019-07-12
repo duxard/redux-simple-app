@@ -1,14 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import  { deletePost } from '../actions/postAction';
 
 class Post extends React.Component {
-    render() {
-        console.log(this.props.posts);
+    constructor(){
+        super();
 
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick(){
+        this.props.deletePost(this.props.posts.id);
+        this.props.history.push('/');
+    }
+
+    render() {
         const post = this.props.posts ? (
             <div>
                 <h4>{this.props.posts.title}</h4>
                 <p>{this.props.posts.body}</p>
+                <div className="center">
+                    <button className="btn grey" onClick={this.handleClick}>Delete post</button>
+                </div>
             </div>
         ) : (
             <p>Posts hasn't been loaded. Reach out to support</p>
@@ -22,6 +35,14 @@ class Post extends React.Component {
     }
 }
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        deletePost: (id) => {
+            dispatch(deletePost(id));
+        }
+    }
+};
+
 const mapStateToProps = (state, ownProps) => {
     let id = ownProps.match.params.post_id;
     return {
@@ -29,4 +50,4 @@ const mapStateToProps = (state, ownProps) => {
     }
 };
 
-export default connect(mapStateToProps)(Post);
+export default connect(mapStateToProps, mapDispatchToProps)(Post);
