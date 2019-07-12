@@ -1,17 +1,17 @@
 import React from 'react';
 
 class Calendar extends React.Component {
-    constructor() {
-        super();
-    }
+  constructor() {
+    super();
+  }
 
-    render() {
-        return (
-            <div>
-                <h2>Calendar page</h2>
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div>
+        <h2>Calendar page</h2>
+      </div>
+    )
+  }
 }
 
 export default Calendar;
