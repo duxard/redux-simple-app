@@ -1,0 +1,13 @@
+.post {
+    width: 100%;
+    border-bottom: 1px solid black;
+    margin: 0 10px;
+}
+
+.title {
+    margin-bottom: 10px;
+}
+
+.title::first-letter {
+    text-transform: uppercase;
+}
