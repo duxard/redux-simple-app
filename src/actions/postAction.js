@@ -1,4 +1,4 @@
-import { DELETE_POST } from './types';
+import { DELETE_POST, INC_COUNT } from './types';
 
 export const deletePost = (id) => {
   return {
@@ -6,3 +6,9 @@ export const deletePost = (id) => {
     id
   }
 };
+
+export const incrementCounter = () => {
+  return {
+    type: INC_COUNT
+  }
+}
