@@ -1,3 +1,5 @@
+import { DELETE_POST, INC_COUNT } from '../actions/types';
+
 const initState = {
   posts: [
     {
@@ -23,25 +25,24 @@ const initState = {
 };
 
 const rootReducer = (state = initState, action) => {
-  if (action.type === 'DELETE_POST') {
-    let newPosts = state.posts.filter(post => {
-      return action.id !== post.id;
-    });
-    return {
-      ...state,
-      posts: newPosts
-    };
+  switch(action.type) {
+    case DELETE_POST:
+      let newPosts = state.posts.filter(post => {
+        return action.id !== post.id;
+      });
+      return {
+        ...state,
+        posts: newPosts
+      };
+    case INC_COUNT:
+      let newVal = state.counter + 1;
+      return {
+        ...state,
+        counter: newVal
+      }
+    default:
+      return state;
   }
-
-  if(action.type === 'INC_COUNT') {
-    let newVal = state.counter + 1;
-    return {
-      ...state,
-      counter: newVal
-    }
-  }
-
-  return state;
 };
 
 export default rootReducer;
