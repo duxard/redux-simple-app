@@ -1,4 +1,4 @@
-import { DELETE_POST, INC_COUNT } from '../actions/types';
+import { DELETE_POST, INC_COUNT, ADD_POST } from '../actions/types';
 
 const initState = {
   posts: [
@@ -40,6 +40,9 @@ const rootReducer = (state = initState, action) => {
         ...state,
         counter: newVal
       }
+    case ADD_POST:
+      console.log(action);
+      return state;
     default:
       return state;
   }
