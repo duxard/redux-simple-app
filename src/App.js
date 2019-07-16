@@ -5,6 +5,8 @@ import Navbar from './components/Navbar';
 import Post from './components/Post';
 import PageOne from './components/PageOne';
 import PageTwo from './components/PageTwo';
+import CreateNewPost from './components/CreateNewPost';
+
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 const App = () => {
@@ -17,6 +19,7 @@ const App = () => {
           <Route path='/cal' component={Calendar}/>
           <Route path='/linkone' component={PageOne}/>
           <Route path='/linktwo' component={PageTwo}/>
+          <Route path='/addnewpost' component={CreateNewPost}/>
           <Route path='/:post_id' component={Post}/>
         </Switch>
       </div>

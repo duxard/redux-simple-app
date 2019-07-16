@@ -5,10 +5,6 @@ import { NavLink } from 'react-router-dom';
 import './css/home.css';
 
 class Home extends React.Component {
-  constructor() {
-    super();
-  }
-
   render() {
     return (
       <div>

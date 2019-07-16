@@ -46,7 +46,7 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state, ownProps) => {
   let id = ownProps.match.params.post_id;
   return {
-    posts: state.posts.find(entity => entity.id == +id)
+    posts: state.posts.find(entity => entity.id === +id)
   }
 };
 

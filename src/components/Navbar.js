@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
@@ -9,8 +8,9 @@ const Navbar = () => {
         <ul className="right">
           <li><NavLink to='/'>Home</NavLink></li>
           <li><NavLink to='/cal'>Calendar</NavLink></li>
-          <li><NavLink to='/linkone/'>First</NavLink></li>
-          <li><NavLink to='/linktwo/'>Second</NavLink></li>
+          <li><NavLink to='/linkone'>First</NavLink></li>
+          <li><NavLink to='/linktwo'>Second</NavLink></li>
+          <li><NavLink to='/addnewpost'>New Post</NavLink></li>
         </ul>
       </div>
     </nav>
