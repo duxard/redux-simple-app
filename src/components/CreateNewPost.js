@@ -12,8 +12,7 @@ class CreateNewPost extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     this.props.addPost(this.postTitle.value, this.postText.value);
-    this.postTitle.value = "";
-    this.postText.value = "";
+    this.props.history.push('/');
   }
 
   render() {

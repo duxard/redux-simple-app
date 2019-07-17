@@ -1,10 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { getPosts } from '../actions/postAction';
 
 import './css/home.css';
 
 class Home extends React.Component {
+
+  componentDidMount() {
+    this.props.getPosts();
+  }
+
   render() {
     return (
       <div>
@@ -13,8 +19,8 @@ class Home extends React.Component {
           this.props.posts.map((post, index) => {
             return (
               <div className="post" key={index}>
-                <p className="title"><NavLink to={'/' + post.id}>{post.title}</NavLink></p>
-                <p className="postContent">{post.body}</p>
+                <p className="title"><NavLink to={'/' + post._id}>{post.title}</NavLink></p>
+                <p className="postContent">{post.text}</p>
               </div>
             );
           })
@@ -30,4 +36,13 @@ const mapStateToProps = (state) => {
   }
 };
 
-export default connect(mapStateToProps)(Home);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getPosts: () => {
+      dispatch(getPosts());
+    }
+  }
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

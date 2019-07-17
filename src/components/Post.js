@@ -10,7 +10,7 @@ class Post extends React.Component {
   }
 
   handleClick() {
-    this.props.deletePost(this.props.posts.id);
+    this.props.deletePost(this.props.posts._id);
     this.props.history.push('/');
   }
 
@@ -18,7 +18,7 @@ class Post extends React.Component {
     const post = this.props.posts ? (
       <div>
         <h4>{this.props.posts.title}</h4>
-        <p>{this.props.posts.body}</p>
+        <p>{this.props.posts.text}</p>
         <div className="center">
           <button className="btn grey" onClick={this.handleClick}>Delete post</button>
         </div>
@@ -46,7 +46,7 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state, ownProps) => {
   let id = ownProps.match.params.post_id;
   return {
-    posts: state.posts.find(entity => entity.id === +id)
+    posts: state.posts.find(entity => entity._id === id)
   }
 };
 
