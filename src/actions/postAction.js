@@ -24,7 +24,7 @@ export const addPost = (title, text) => dispatch => {
     .post('https://asta-web-1.herokuapp.com/api/post', {title, text})
     .then(response => {
       if(response.status === 200 && response.statusText === 'OK') {
-        console.log('success');
+        console.log('Adding to Mongo: success');
         dispatch({
           type: ADD_POST,
           payload: response.data
